@@ -27,3 +27,17 @@
 /Users/jal/Projects/Pustok/Pustok/obj/Debug/net6.0/Pustok.pdb
 /Users/jal/Projects/Pustok/Pustok/obj/Debug/net6.0/Pustok.genruntimeconfig.cache
 /Users/jal/Projects/Pustok/Pustok/obj/Debug/net6.0/ref/Pustok.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/Humanizer.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/Microsoft.Extensions.Identity.Core.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/Microsoft.Extensions.Identity.Stores.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Debug/net6.0/System.Diagnostics.DiagnosticSource.dll
+/Users/jal/Projects/Pustok/Pustok/obj/Debug/net6.0/Pustok.csproj.CopyComplete
