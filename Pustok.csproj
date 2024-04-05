@@ -15,6 +15,11 @@
     <None Remove="Areas\Admin\Views\" />
     <None Remove="Data\" />
     <None Remove="Models\baseModels\" />
+    <None Remove="Areas\Admin\Views\Shared\" />
+    <None Remove="Areas\Admin\Views\Dashboard\" />
+    <None Remove="Areas\Admin\Views\Category\" />
+    <None Remove="Areas\Admin\Dtos\" />
+    <None Remove="Areas\Admin\Dtos\CategoryDtos\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -27,10 +32,17 @@
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Data\" />
     <Folder Include="Models\baseModels\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\Dashboard\" />
+    <Folder Include="Areas\Admin\Views\Category\" />
+    <Folder Include="wwwroot\Admin\" />
+    <Folder Include="Areas\Admin\Dtos\" />
+    <Folder Include="Areas\Admin\Dtos\CategoryDtos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
     <Content Remove="wwwroot\assets\" />
+    <Content Remove="wwwroot\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.28" />
@@ -42,5 +54,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.28" />
   </ItemGroup>
 </Project>
