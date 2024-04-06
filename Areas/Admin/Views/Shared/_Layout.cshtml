@@ -65,6 +65,20 @@
                     </div>
                 </div>
             </li>
+          <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSlider"
+                   aria-expanded="false" aria-controls="collapseSlider">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Sliders</span>
+                </a>
+                <div id="collapseSlider" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        @* <h6 class="collapse-header">Custom Components:</h6> *@
+                        <a class="collapse-item" asp-controller="Slider" asp-action="Index">Slider List</a>
+                        <a class="collapse-item" asp-controller="Slider" asp-action="Create">Slider Create</a>
+                    </div>
+                </div>
+            </li>
          
         </ul>
         <!-- End of Sidebar -->
