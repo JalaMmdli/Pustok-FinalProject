@@ -23,6 +23,9 @@
     <None Remove="Extensions\" />
     <None Remove="Areas\Admin\Dtos\SliderDtos\" />
     <None Remove="Areas\Admin\Views\Slider\" />
+    <None Remove="Areas\Admin\Views\Service\" />
+    <None Remove="Areas\Admin\Dtos\ServiceDtos\" />
+    <None Remove="Areas\Admin\Dtos\ProductDtos\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -45,12 +48,17 @@
     <Folder Include="Areas\Admin\Dtos\SliderDtos\" />
     <Folder Include="wwwroot\assets\image\sliderIcons\" />
     <Folder Include="Areas\Admin\Views\Slider\" />
+    <Folder Include="Areas\Admin\Views\Service\" />
+    <Folder Include="Areas\Admin\Dtos\ServiceDtos\" />
+    <Folder Include="wwwroot\assets\image\serviceIcons\" />
+    <Folder Include="Areas\Admin\Dtos\ProductDtos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
     <Content Remove="wwwroot\assets\" />
     <Content Remove="wwwroot\Admin\" />
     <Content Remove="wwwroot\assets\image\sliderIcons\" />
+    <Content Remove="wwwroot\assets\image\serviceIcons\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.28" />

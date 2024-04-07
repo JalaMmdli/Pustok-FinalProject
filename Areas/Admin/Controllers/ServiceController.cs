@@ -7,22 +7,22 @@ using Pustok.Models;
 
 namespace Pustok.Areas.Admin.Controllers;
 [Area("Admin")]
-public class SliderController : Controller
+public class ServiceController : Controller
 {
     private readonly AppDbContext _context;
     private readonly IWebHostEnvironment _env;
 
-    public SliderController(AppDbContext context, IWebHostEnvironment env)
+
+    public ServiceController(AppDbContext context, IWebHostEnvironment env)
     {
         _context = context;
         _env = env;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task< IActionResult> Index()
     {
-
-        var sliders = await _context.Sliders.ToListAsync();
-        return View(sliders);
+        var services = await _context.Service.ToListAsync();
+        return View(services);
     }
 
     public IActionResult Create()
@@ -31,7 +31,7 @@ public class SliderController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(SliderCreateDto dto)
+    public async Task<IActionResult> Create(ServiceCreateDto dto)
     {
         if (!ModelState.IsValid)
         {
@@ -48,53 +48,56 @@ public class SliderController : Controller
             return View(dto);
         }
 
-        string UniqueFileName = await dto.File.SaveFileAsync(_env.WebRootPath, "assets", "image", "sliderIcons");
+        var isExistTitle = await _context.Service.AnyAsync(x => x.Title.ToLower() == dto.Title.ToLower());
 
-        Slider newSlider = new()
+        if (isExistTitle)
+        {
+            ModelState.AddModelError("", "Service already exist");
+            return View(dto);
+        }
+
+        var uniqueFileName = await dto.File.SaveFileAsync(_env.WebRootPath, "assets", "image", "serviceIcons");
+        Service newService = new()
         {
             Title = dto.Title,
             Description = dto.Description,
-            Button = dto.Button,
-            ImagePath = UniqueFileName
+            Icon = uniqueFileName
         };
-        await _context.Sliders.AddAsync(newSlider);
+        await _context.Service.AddAsync(newService);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
 
     public async Task<IActionResult> Update(int id)
     {
-        var slider = await _context.Sliders.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-
-        if (slider is null)
+        var service = await _context.Service.FirstOrDefaultAsync(x => x.Id == id);
+        if (service is null)
         {
             return NotFound();
         }
 
-        SliderUpdateDto dto = new()
+        ServiceUpdateDto dto = new()
         {
-            Title = slider.Title,
-            Description = slider.Description,
-            Button = slider.Button,
-            ImagePath = slider.ImagePath
+            Title = service.Title,
+            Description = service.Description,
+            Icon = service.Icon,
+
+
         };
-
-
         return View(dto);
-
     }
+
     [HttpPost]
-    public async Task<IActionResult> Update(int id, SliderUpdateDto dto)
+    public async Task<IActionResult> Update(int id ,ServiceUpdateDto dto)
     {
         if (!ModelState.IsValid)
         {
-            return View(dto);
+            return View();
         }
-
-        var existSlider = await _context.Sliders.FirstOrDefaultAsync(x => x.Id == id);
-
-        if (existSlider is null)
+        var existService = await _context.Service.FirstOrDefaultAsync(x => x.Id == id);
+        if (existService is null)
             return NotFound();
+
         if (dto.File is not null)
         {
             if (!dto.File.CheckFileType("image"))
@@ -107,15 +110,16 @@ public class SliderController : Controller
                 ModelState.AddModelError("File", "Invalid File Size");
                 return View(dto);
             }
-            existSlider.ImagePath.DeleteFile(_env.WebRootPath, "assets", "image", "sliderIcons");
+            existService.Icon.DeleteFile(_env.WebRootPath, "assets", "image", "serviceIcons");
 
-            var uniqueFileName = await dto.File.SaveFileAsync(_env.WebRootPath, "assets", "image", "sliderIcons");
-            existSlider.ImagePath = uniqueFileName;
+            var uniqueFileName = await dto.File.SaveFileAsync(_env.WebRootPath, "assets", "image", "serviceIcons");
+            existService.Icon = uniqueFileName;
+
         }
-        existSlider.Description = dto.Description;
-        existSlider.Button = dto.Button;
-        existSlider.Title = dto.Title;
-        _context.Update(existSlider);
+
+        existService.Title = dto.Title;
+        existService.Description = dto.Description;
+        _context.Update(existService);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
@@ -123,18 +127,18 @@ public class SliderController : Controller
     [HttpPost]
     public async Task<IActionResult> Delete(int id)
     {
-        var slider = await _context.Sliders.FirstOrDefaultAsync(x => x.Id == id);
+        var service = await _context.Service.FirstOrDefaultAsync(x => x.Id == id);
 
-
-        if (slider is null)
+        if (service is null)
         {
             return NotFound();
         }
-        slider.ImagePath.DeleteFile(_env.WebRootPath, "assets", "image","sliderIcons");
-        _context.Sliders.Remove(slider);
+        service.Icon.DeleteFile(_env.WebRootPath, "assets", "image", "sliderIcons");
+        _context.Service.Remove(service);
 
 
         return RedirectToAction("Index");
+
     }
 }
 

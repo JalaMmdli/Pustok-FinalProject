@@ -17,7 +17,7 @@ public class CategoryController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var categories = await _context.Categories.ToListAsync();
+        var categories = await _context.Categories.Include(x=>x.Products).ToListAsync();
         return View(categories);
     }
     public async Task<IActionResult> Create()
@@ -73,7 +73,7 @@ public class CategoryController : Controller
             ViewBag.Categories = new List<Category>();
         else
         {
-            var categories = await _context.Categories.Where(x => x.ParentId == null).ToListAsync();
+            var categories = await _context.Categories.Where(x => x.ParentId == null && x.Id!=id).ToListAsync();
             ViewBag.Categories = categories;
         }
 
@@ -95,7 +95,7 @@ public class CategoryController : Controller
             ViewBag.Categories = new List<Category>();
         else
         {
-            var categories = await _context.Categories.Where(x => x.ParentId == null).ToListAsync();
+            var categories = await _context.Categories.Where(x => x.ParentId == null && x.Id != id).ToListAsync();
             ViewBag.Categories = categories;
         }
 

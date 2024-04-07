@@ -19,15 +19,12 @@ public class Product : BaseModel
     public Brand Brand { get; set; }
     public int CategoryId { get; set; }
     public Category Category { get; set; }
-    public ICollection<ProductImg> ProductImgs { get; set; }
-    public ICollection<Tag> Tags { get; set; }
-    public ICollection<BasketItem> BasketItems { get; set; }
-    public Product()
-    {
-        ProductImgs = new HashSet<ProductImg>();
-        Tags = new HashSet<Tag>();
-        BasketItems = new HashSet<BasketItem>();
-    }
+    public int AuthorId  { get; set; }
+    public Author Author { get; set; }
+    public ICollection<ProductImg> ProductImgs { get; set; } = new List<ProductImg>();
+    public ICollection<ProductTag> ProductTags { get; set; } = new List<ProductTag>();
+    public ICollection<BasketItem> BasketItems { get; set; } = new List<BasketItem>();
+
 }
 
 
