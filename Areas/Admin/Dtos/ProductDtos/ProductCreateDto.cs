@@ -1,5 +1,7 @@
 ﻿using System;
-namespace Pustok.Areas.Admin.Dtos.ProductDtos
+using Pustok.Models;
+
+namespace Pustok.Areas.Admin.Dtos
 {
 	public class ProductCreateDto
 	{
@@ -14,6 +16,8 @@ namespace Pustok.Areas.Admin.Dtos.ProductDtos
         public string LongDescription { get; set; } = null!;
         public int BrandId { get; set; }
         public int CategoryId { get; set; }
+        public int AuthorId { get; set; }
+
         public IFormFile MainFile { get; set; } = null!;
         public IFormFile HoverFile { get; set; } = null!;
         public List<IFormFile> AdditionalFiles { get; set; } = new();

@@ -17,7 +17,7 @@ public class CategoryController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var categories = await _context.Categories.Include(x=>x.Products).ToListAsync();
+        var categories = await _context.Categories.Include(x=>x.Products).Where(x=>!x.SoftDelete).ToListAsync();
         return View(categories);
     }
     public async Task<IActionResult> Create()

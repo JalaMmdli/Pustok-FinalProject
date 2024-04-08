@@ -9,7 +9,7 @@ namespace Pustok.Models
 		public string Url { get; set; } = null!;
         [NotMapped]
         public IFormFile File { get; set; } = null!;
-        public bool UsMain { get; set; }
+        public bool IsMain { get; set; }
 		public bool IsHover { get; set; }
 		public int ProductId { get; set; }
 		public Product Product { get; set; } = null!;

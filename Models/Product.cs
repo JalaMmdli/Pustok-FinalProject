@@ -15,12 +15,13 @@ public class Product : BaseModel
     public decimal Rating { get; set; }
     public string ShortDescription { get; set; } = null!;
     public string LongDescription { get; set; } = null!;
+    public bool SoftDelete { get; set; }
     public int BrandId { get; set; }
-    public Brand Brand { get; set; }
+    public Brand Brand { get; set; } = null!;
     public int CategoryId { get; set; }
-    public Category Category { get; set; }
+    public Category Category { get; set; } = null!;
     public int AuthorId  { get; set; }
-    public Author Author { get; set; }
+    public Author Author { get; set; } = null!;
     public ICollection<ProductImg> ProductImgs { get; set; } = new List<ProductImg>();
     public ICollection<ProductTag> ProductTags { get; set; } = new List<ProductTag>();
     public ICollection<BasketItem> BasketItems { get; set; } = new List<BasketItem>();

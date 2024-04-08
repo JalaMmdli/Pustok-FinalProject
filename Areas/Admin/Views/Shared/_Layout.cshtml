@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </li>
-          <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSlider"
                    aria-expanded="false" aria-controls="collapseSlider">
                     <i class="fas fa-fw fa-cog"></i>
@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </li>
-         <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseService"
                    aria-expanded="false" aria-controls="collapseService">
                     <i class="fas fa-fw fa-cog"></i>
@@ -93,7 +93,35 @@
                     </div>
                 </div>
             </li>
-         
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBrand"
+                   aria-expanded="false" aria-controls="collapseBrand">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Brands</span>
+                </a>
+                <div id="collapseBrand" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        @* <h6 class="collapse-header">Custom Components:</h6> *@
+                        <a class="collapse-item" asp-controller="Brand" asp-action="Index">Brand List</a>
+                        <a class="collapse-item" asp-controller="Brand" asp-action="Create">Brand Create</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAuthor"
+                   aria-expanded="false" aria-controls="collapseAuthor">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Authors</span>
+                </a>
+                <div id="collapseAuthor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        @* <h6 class="collapse-header">Custom Components:</h6> *@
+                        <a class="collapse-item" asp-controller="Author" asp-action="Index">Author List</a>
+                        <a class="collapse-item" asp-controller="Author" asp-action="Create">Author Create</a>
+                    </div>
+                </div>
+            </li>
+
         </ul>
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->

@@ -36,7 +36,7 @@ public static class FileExtension
     }
     public static void DeleteFile(this string fileName, string root, string assets,string image, string folderName)
     {
-        string path = Path.Combine(root,  assets, folderName, fileName);
+        string path = Path.Combine(root,  assets, image,folderName, fileName);
         if (System.IO.File.Exists(path))
         {
             System.IO.File.Delete(path);

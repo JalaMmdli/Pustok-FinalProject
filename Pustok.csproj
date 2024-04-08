@@ -26,6 +26,11 @@
     <None Remove="Areas\Admin\Views\Service\" />
     <None Remove="Areas\Admin\Dtos\ServiceDtos\" />
     <None Remove="Areas\Admin\Dtos\ProductDtos\" />
+    <None Remove="Areas\Admin\Views\Product\" />
+    <None Remove="Areas\Admin\Views\Author\" />
+    <None Remove="Areas\Admin\Views\Brand\" />
+    <None Remove="Areas\Admin\Dtos\BrandDtos\" />
+    <None Remove="Areas\Admin\Dtos\AuthorDtos\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -52,6 +57,12 @@
     <Folder Include="Areas\Admin\Dtos\ServiceDtos\" />
     <Folder Include="wwwroot\assets\image\serviceIcons\" />
     <Folder Include="Areas\Admin\Dtos\ProductDtos\" />
+    <Folder Include="wwwroot\assets\image\productImgs\" />
+    <Folder Include="Areas\Admin\Views\Product\" />
+    <Folder Include="Areas\Admin\Views\Author\" />
+    <Folder Include="Areas\Admin\Views\Brand\" />
+    <Folder Include="Areas\Admin\Dtos\BrandDtos\" />
+    <Folder Include="Areas\Admin\Dtos\AuthorDtos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -59,6 +70,7 @@
     <Content Remove="wwwroot\Admin\" />
     <Content Remove="wwwroot\assets\image\sliderIcons\" />
     <Content Remove="wwwroot\assets\image\serviceIcons\" />
+    <Content Remove="wwwroot\assets\image\productImgs\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.28" />
