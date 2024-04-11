@@ -142,6 +142,7 @@ public class CategoryController : Controller
             return NotFound();
 
         category.SoftDelete = true;
+        _context.Categories.Update(category);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
         

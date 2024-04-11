@@ -6,7 +6,14 @@ namespace Pustok.Data;
 
 public class AppDbContext: IdentityDbContext<AppUser>
 	{
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {
+
+    }
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+        builder.Entity<Product>().HasQueryFilter(x => !x.SoftDelete);
+    }
 
     public DbSet<Product> Products { get; set; } = null!;
     public DbSet<Category>  Categories { get; set; } = null!;

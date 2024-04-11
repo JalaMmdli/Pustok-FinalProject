@@ -31,6 +31,8 @@
     <None Remove="Areas\Admin\Views\Brand\" />
     <None Remove="Areas\Admin\Dtos\BrandDtos\" />
     <None Remove="Areas\Admin\Dtos\AuthorDtos\" />
+    <None Remove="Views\Shop\" />
+    <None Remove="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -63,6 +65,8 @@
     <Folder Include="Areas\Admin\Views\Brand\" />
     <Folder Include="Areas\Admin\Dtos\BrandDtos\" />
     <Folder Include="Areas\Admin\Dtos\AuthorDtos\" />
+    <Folder Include="Views\Shop\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -83,5 +87,6 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.28" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 </Project>

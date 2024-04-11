@@ -1,9 +1,10 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Pustok.Models;
 
 namespace Pustok.Areas.Admin.Dtos
 {
-	public class ProductCreateDto
+    public class ProductCreateDto
 	{
         public string Name { get; set; } = null!;
         public string ProductCode { get; set; } = null!;
@@ -11,6 +12,7 @@ namespace Pustok.Areas.Admin.Dtos
         public bool IsStock { get; set; }
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
+        [Range(0,6)]
         public decimal Rating { get; set; }
         public string ShortDescription { get; set; } = null!;
         public string LongDescription { get; set; } = null!;

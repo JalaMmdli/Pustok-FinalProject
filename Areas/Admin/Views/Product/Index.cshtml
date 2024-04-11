@@ -30,6 +30,7 @@
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 296.2px;">Name</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 296.2px;">Price</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 296.2px;">Discount</th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 296.2px;">Category</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="3" aria-label="Position: activate to sort column ascending" style="width: 296.2px;">Actions</th>
                                     </tr>
                                 </thead>
@@ -37,13 +38,13 @@
                                     @foreach (var product in Model)
                                     {
                                         <tr>
-                                            <td>@count</td>
-                                            <td><img width="100" src="~/assets/imgage/productImgs/@product.ProductImgs.FirstOrDefault(x=>x.IsMain).Url" /></td>
+                                            <td>@(count++)</td>
+                                            <td><img width="100" src="~/assets/image/productImgs/@product.ProductImgs.FirstOrDefault(x=>x.IsMain)?.Url" /></td>
                                             <td>@product.Name</td>
                                             <td>@product.Price</td>
                                             <td>@product.Discount %</td>
                                             <td>@product.Category.Name</td>
-                                            <td><a class="btn deleteBtn btn-danger" asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id" asp-area="Admin">Delete</a></td>
+                                            <td><a class="btn deleteBtn btn-danger" asp-controller="Product" asp-action="Delete" data-id="@product.Id" asp-route-id="@product.Id" asp-area="Admin">Delete</a></td>
                                             <td><a class="btn btn-warning" asp-controller="Product" asp-action="Update" asp-route-id="@product.Id" asp-area="Admin">Edit</a></td>
                                             <td><a class="btn btn-primary" asp-controller="Product" asp-action="Detail" asp-route-id="@product.Id" asp-area="Admin">Detail</a></td>
                                         </tr>
@@ -85,14 +86,14 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
 
-                        const categoryId = this.dataset.id;
-                        console.log(categoryId);
+                        const productId = this.dataset.id;
+                        console.log(x.href);
                         $.ajax({
                             type: "POST",
-                            url: `Category/Delete/${categoryId}`,
+                            url: x.href,
                             success: function (res) {
                                 console.log(res)
-                                $("#tbody").html(res);
+                                location.reload();
                             },
                             error: function (err) {
                                 console.log(err)

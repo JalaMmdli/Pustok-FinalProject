@@ -30992,6 +30992,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\others\home-side-promo.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\0177a1a3-03c8-4d2e-b16e-4b1fc630f07c_product-3.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/0177a1a3-03c8-4d2e-b16e-4b1fc630f07c_product-3.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\0177a1a3-03c8-4d2e-b16e-4b1fc630f07c_product-3.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\02d696a1-17a6-41b0-958a-9b2a6313a937_alma.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>Pustok</SourceId>
@@ -31056,6 +31072,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\340add91-ece0-428a-b059-6a178668b649_1024px-HTML5_Badge.svg.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\3cbf5203-35bb-429d-82a3-af2fcdb19884_product-3.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/3cbf5203-35bb-429d-82a3-af2fcdb19884_product-3.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\3cbf5203-35bb-429d-82a3-af2fcdb19884_product-3.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\40348cae-c8e9-4258-8076-1f9d7c77a9f0_1024px-HTML5_Badge.svg.png))">
       <SourceType>Package</SourceType>
       <SourceId>Pustok</SourceId>
@@ -31088,6 +31120,38 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\4e7958b3-2b5d-4a7a-9b5d-fc7f6e2ce021_1200px-Javascript_badge.svg.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\553d99ef-87ac-467e-ac57-35fa8b1d6acb_1200px-Javascript_badge.svg.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/553d99ef-87ac-467e-ac57-35fa8b1d6acb_1200px-Javascript_badge.svg.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\553d99ef-87ac-467e-ac57-35fa8b1d6acb_1200px-Javascript_badge.svg.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\5fc3e069-edf2-4543-8954-9864cc980e9a_product-1.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/5fc3e069-edf2-4543-8954-9864cc980e9a_product-1.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\5fc3e069-edf2-4543-8954-9864cc980e9a_product-1.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\6bf61a44-3441-449a-8481-a74ba18cc599_alma.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>Pustok</SourceId>
@@ -31103,6 +31167,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\6bf61a44-3441-449a-8481-a74ba18cc599_alma.jpeg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\7aa71d18-50d8-4711-b168-590b62131d08_product-2.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/7aa71d18-50d8-4711-b168-590b62131d08_product-2.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\7aa71d18-50d8-4711-b168-590b62131d08_product-2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\87da6648-5d90-4df7-ae1f-f2377661f9af_1024px-HTML5_Badge.svg.png))">
       <SourceType>Package</SourceType>
@@ -31136,6 +31216,38 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\97e6e01c-c29b-4166-95b8-7bb66dc0b4ce_1024px-HTML5_Badge.svg.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\a7fb08b5-b029-40ba-8e2e-e8448946437f_1024px-HTML5_Badge.svg.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/a7fb08b5-b029-40ba-8e2e-e8448946437f_1024px-HTML5_Badge.svg.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\a7fb08b5-b029-40ba-8e2e-e8448946437f_1024px-HTML5_Badge.svg.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\b6f02376-88c9-429c-8a9f-f200137cc5a4_product-4.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/b6f02376-88c9-429c-8a9f-f200137cc5a4_product-4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\b6f02376-88c9-429c-8a9f-f200137cc5a4_product-4.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\bdb8eab2-9e10-44f5-8f25-07c5f9a5c290_1200px-Javascript_badge.svg.png))">
       <SourceType>Package</SourceType>
       <SourceId>Pustok</SourceId>
@@ -31152,6 +31264,86 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\bdb8eab2-9e10-44f5-8f25-07c5f9a5c290_1200px-Javascript_badge.svg.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\c2ebe8ee-1c38-488b-8499-e801396638dc_1024px-HTML5_Badge.svg.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/c2ebe8ee-1c38-488b-8499-e801396638dc_1024px-HTML5_Badge.svg.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\c2ebe8ee-1c38-488b-8499-e801396638dc_1024px-HTML5_Badge.svg.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\ccb9004a-0602-45b2-9a5c-0198ec4a481c_1200px-Javascript_badge.svg.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/ccb9004a-0602-45b2-9a5c-0198ec4a481c_1200px-Javascript_badge.svg.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\ccb9004a-0602-45b2-9a5c-0198ec4a481c_1200px-Javascript_badge.svg.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\dc3e6591-dfc7-42a5-ba6a-749cdbbdddce_1024px-HTML5_Badge.svg.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/dc3e6591-dfc7-42a5-ba6a-749cdbbdddce_1024px-HTML5_Badge.svg.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\dc3e6591-dfc7-42a5-ba6a-749cdbbdddce_1024px-HTML5_Badge.svg.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\dd2ef657-677c-4db0-a23c-62c60f6751c4_1200px-Javascript_badge.svg.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/dd2ef657-677c-4db0-a23c-62c60f6751c4_1200px-Javascript_badge.svg.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\dd2ef657-677c-4db0-a23c-62c60f6751c4_1200px-Javascript_badge.svg.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\e39cd3b9-9cb0-4f53-8221-af9d0bb83cb3_product-5.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/e39cd3b9-9cb0-4f53-8221-af9d0bb83cb3_product-5.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\e39cd3b9-9cb0-4f53-8221-af9d0bb83cb3_product-5.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\e695c2e0-61f0-40cf-9c96-13ef3bc5fc4b_1200px-Javascript_badge.svg.png))">
       <SourceType>Package</SourceType>
       <SourceId>Pustok</SourceId>
@@ -31167,6 +31359,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\e695c2e0-61f0-40cf-9c96-13ef3bc5fc4b_1200px-Javascript_badge.svg.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\e77a6315-2a5d-46ed-8f11-9924c7163891_1200px-Javascript_badge.svg.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/e77a6315-2a5d-46ed-8f11-9924c7163891_1200px-Javascript_badge.svg.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\e77a6315-2a5d-46ed-8f11-9924c7163891_1200px-Javascript_badge.svg.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\f4a07806-23e8-4829-8428-b41beae439c8_1024px-HTML5_Badge.svg.png))">
       <SourceType>Package</SourceType>
@@ -31199,6 +31407,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\f82cf77e-e14c-4013-b4fe-cff504f24e4a_alma.jpeg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\fa680ab2-6874-4a0e-8549-40e890252d9d_1200px-Javascript_badge.svg.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok</BasePath>
+      <RelativePath>assets/image/productImgs/fa680ab2-6874-4a0e-8549-40e890252d9d_1200px-Javascript_badge.svg.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\fa680ab2-6874-4a0e-8549-40e890252d9d_1200px-Javascript_badge.svg.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\products\cart-product-1.jpg))">
       <SourceType>Package</SourceType>
