@@ -1,4 +1,7 @@
-﻿
+﻿@inject LayoutService  _layoutService
+@{
+    var basketItems = await _layoutService.GetBasket();
+}
 <!DOCTYPE html>
 <html lang="zxx">
 

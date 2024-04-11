@@ -70,3 +70,11 @@
 /Users/jal/Projects/Pustok/Pustok/obj/Release/net6.0/Pustok.pdb
 /Users/jal/Projects/Pustok/Pustok/obj/Release/net6.0/Pustok.genruntimeconfig.cache
 /Users/jal/Projects/Pustok/Pustok/obj/Release/net6.0/ref/Pustok.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Release/net6.0/BouncyCastle.Cryptography.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Release/net6.0/MailKit.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Release/net6.0/MimeKit.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Release/net6.0/System.Formats.Asn1.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Release/net6.0/System.Security.Cryptography.Pkcs.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Release/net6.0/System.Text.Encoding.CodePages.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Release/net6.0/runtimes/win/lib/net6.0/System.Security.Cryptography.Pkcs.dll
+/Users/jal/Projects/Pustok/Pustok/bin/Release/net6.0/runtimes/win/lib/net6.0/System.Text.Encoding.CodePages.dll

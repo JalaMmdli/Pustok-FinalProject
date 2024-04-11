@@ -1,0 +1,46 @@
+﻿@model RegisterVm
+<div style="margin:0 auto" class="col-sm-12 col-md-12 col-xs-12 col-lg-6 mb--30 mb-lg--0">
+    <!-- Login Form s-->
+    <form method="post">
+        <div class="login-form">
+            <h4 class="login-title">New Customer</h4>
+            <p><span class="font-weight-bold">I am a new customer</span></p>
+            <div class="row">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-12 col-12 mb--15">
+                    <label asp-for="Name">Name</label>
+                    <input class="mb-0 form-control" asp-for="Name" placeholder="Enter your full name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col-md-12 col-12 mb--15">
+                    <label asp-for="Surname">Surame</label>
+                    <input class="mb-0 form-control" asp-for="Surname" placeholder="Enter your full surname">
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                </div>
+                <div class="col-12 mb--20">
+                    <label asp-for="Email">Email</label>
+                    <input class="mb-0 form-control" asp-for="Email" placeholder="Enter Your     Address Here..">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="col-12 mb--20">
+                    <label asp-for="Username">Username</label>
+                    <input class="mb-0 form-control" asp-for="Username" placeholder="Enter Your Username Here..">
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="col-lg-6 mb--20">
+                    <label asp-for="Password">Password</label>
+                    <input class="mb-0 form-control" asp-for="Password" placeholder="Enter your password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="col-lg-6 mb--20">
+                    <label asp-for="ConfirmPassword">Repeat Password</label>
+                    <input class="mb-0 form-control" asp-for="ConfirmPassword" placeholder="Repeat your password">
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-outlined">Register</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

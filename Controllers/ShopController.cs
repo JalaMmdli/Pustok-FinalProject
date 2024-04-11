@@ -3,16 +3,20 @@ using Microsoft.EntityFrameworkCore;
 using Pustok.Data;
 using Pustok.ViewModels;
 using Newtonsoft.Json;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
+using Pustok.Models;
 
 namespace Pustok.Controllers;
 
 public class ShopController : Controller
 {
     private readonly AppDbContext _context;
-
-    public ShopController(AppDbContext context)
+    private readonly UserManager<AppUser> _userManager;
+    public ShopController(AppDbContext context, UserManager<AppUser> userManager)
     {
         _context = context;
+        _userManager = userManager;
     }
 
     public async Task<IActionResult> Index()
@@ -32,21 +36,53 @@ public class ShopController : Controller
         if (product is null)
             return NotFound();
 
-        List<BasketVm> basketItems = GetBasket();
 
-        var existItem = basketItems.FirstOrDefault(x => x.ProductId == id);
+        if (User.Identity.IsAuthenticated)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-        if (existItem is not null)
-            existItem.Count++;
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user is null)
+                return BadRequest();
+
+            var dbBasketItems = await _context.BasketItems.Where(x => x.AppUserId == userId).ToListAsync();
+
+
+            var existBItem = dbBasketItems.FirstOrDefault(x => x.ProductId == id);
+            if (existBItem is not null)
+            {
+                existBItem.Count++;
+                _context.BasketItems.Update(existBItem);
+            }
+            else
+            {
+                BasketItem bItem = new() { AppUserId = userId, ProductId = id, Count = 1 };
+                await _context.BasketItems.AddAsync(bItem);
+            }
+
+            await _context.SaveChangesAsync();
+        }
         else
         {
-            BasketVm vm = new() { ProductId = id, Count = 1 };
-            basketItems.Add(vm);
+
+
+            List<BasketItem> basketItems = GetBasket();
+
+            var existItem = basketItems.FirstOrDefault(x => x.ProductId == id);
+
+            if (existItem is not null)
+                existItem.Count++;
+            else
+            {
+                BasketItem vm = new() { ProductId = id, Count = 1 };
+                basketItems.Add(vm);
+            }
+
+            var json = JsonConvert.SerializeObject(basketItems);
+            Response.Cookies.Append("basket", json);
+
         }
-
-        var json = JsonConvert.SerializeObject(basketItems);
-        Response.Cookies.Append("basket", json);
-
 
         return RedirectToAction(nameof(Index));
 
@@ -55,12 +91,12 @@ public class ShopController : Controller
 
 
 
-    private List<BasketVm> GetBasket()
+    private List<BasketItem> GetBasket()
     {
-        List<BasketVm> basketItems = new();
+        List<BasketItem> basketItems = new();
         if (Request.Cookies["basket"] != null)
         {
-            basketItems = JsonConvert.DeserializeObject<List<BasketVm>>(Request.Cookies["basket"]) ?? new();
+            basketItems = JsonConvert.DeserializeObject<List<BasketItem>>(Request.Cookies["basket"]) ?? new();
         }
 
         return basketItems;

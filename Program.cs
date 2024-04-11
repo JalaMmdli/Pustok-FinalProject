@@ -3,11 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Pustok.Data;
 using Pustok.Models;
+using Pustok.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<LayoutService>();
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {

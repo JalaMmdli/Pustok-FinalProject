@@ -33,6 +33,8 @@
     <None Remove="Areas\Admin\Dtos\AuthorDtos\" />
     <None Remove="Views\Shop\" />
     <None Remove="ViewModels\" />
+    <None Remove="Views\Account\" />
+    <None Remove="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -67,6 +69,8 @@
     <Folder Include="Areas\Admin\Dtos\AuthorDtos\" />
     <Folder Include="Views\Shop\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -88,5 +92,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.28" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="MailKit" Version="4.4.0" />
   </ItemGroup>
 </Project>

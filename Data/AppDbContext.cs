@@ -4,11 +4,10 @@ using Pustok.Models;
 
 namespace Pustok.Data;
 
-public class AppDbContext: IdentityDbContext<AppUser>
-	{
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {
-
-    }
+public class AppDbContext : IdentityDbContext<AppUser>
+{
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+   
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -16,7 +15,7 @@ public class AppDbContext: IdentityDbContext<AppUser>
     }
 
     public DbSet<Product> Products { get; set; } = null!;
-    public DbSet<Category>  Categories { get; set; } = null!;
+    public DbSet<Category> Categories { get; set; } = null!;
     public DbSet<ProductImg> ProductImgs { get; set; } = null!;
     public DbSet<Service> Service { get; set; } = null!;
     public DbSet<Slider> Sliders { get; set; } = null!;
