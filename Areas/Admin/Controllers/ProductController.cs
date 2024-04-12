@@ -356,6 +356,24 @@ public class ProductController : Controller
 
     }
 
+    public async Task<IActionResult> Detail(int id)
+    {
+
+       var existProduct= await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
+        if ( existProduct is null) return BadRequest();
+
+
+        var product = await _context.Products.Include(x => x.Category)
+                                             .Include(x => x.ProductImgs)
+                                             .Include(x => x.Brand)
+                                             .Include(x => x.Author)
+                                             .Include(x => x.ProductTags)
+                                             .ThenInclude(x => x.Tag)
+                                             .FirstOrDefaultAsync(x => x.Id == id);
+        if (product is null) return NotFound();
+        return View(product);
+    }
+
     public async Task<IActionResult> Delete(int id)
     {
         var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);

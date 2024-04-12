@@ -1,0 +1,53 @@
+﻿@model Product
+
+<div class="container">
+
+    <div class="d-flex justify-content-center align-items-center flex-column">
+        <h2>Product Name: @Model.Name</h2>
+        <p>Shor Description: @Model.ShortDescription</p>
+        <p>Long Description: @Model.LongDescription</p>
+        @if (Model.IsStock)
+        {
+
+
+            <p>Stock: In Stock</p>
+        }
+        else
+        {
+            <p>Stock:Out Of Stock</p>
+        }
+        <p>Price: @Model.Price</p>
+        <p>Discount: @Model.Discount %</p>
+        <p>Rating: @Model.Rating</p>
+        <p>Brand: @Model.Brand.Name</p>
+        <p>Author: @Model.Author.Name</p>
+        <p>Category: @Model.Category.Name</p>
+        <p>Product Code: @Model.ProductCode</p>
+        <table class="table table-secondary table-hover">
+            <thead>
+                <tr>
+                    <th>Tags</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tag in Model.ProductTags)
+                {
+                    <tr>
+                        <td>@tag.Tag.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+    <div class="row" style="gap:30px;">
+        @foreach (var item in @Model.ProductImgs)
+        {
+            <div class="col-2">
+                <img style="width:200px;" src="~/assets/image/productImgs/@item.Url" />
+            </div>
+        }
+    </div>
+
+</div>

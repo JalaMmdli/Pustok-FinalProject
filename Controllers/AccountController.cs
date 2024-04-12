@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Pustok.Enums;
 using Pustok.Models;
 using Pustok.Services;
 using Pustok.ViewModels;
@@ -12,12 +14,14 @@ public class AccountController : Controller
     private readonly UserManager<AppUser> _userManager;
     private readonly IEmailService _emailService;
     private readonly SignInManager<AppUser> _signInManager;
+    private readonly RoleManager<IdentityRole> _roleManager;
 
-    public AccountController(UserManager<AppUser> userManager, IEmailService emailService, SignInManager<AppUser> signInManager)
+    public AccountController(UserManager<AppUser> userManager, IEmailService emailService, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
     {
         _userManager = userManager;
         _emailService = emailService;
         _signInManager = signInManager;
+        _roleManager = roleManager;
     }
 
     public IActionResult Register()
@@ -82,5 +86,56 @@ public class AccountController : Controller
 
 
     }
+
+    public IActionResult Login()
+    {
+        return View();
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginVm loginVm)
+    {
+        if (!ModelState.IsValid) return View(loginVm);
+
+        var existUser = await _userManager.FindByEmailAsync(loginVm.Email);
+        if (existUser == null)
+        {
+            ModelState.AddModelError("", "Invalid Credentials");
+            return View();
+        }
+
+        var result = await _signInManager.PasswordSignInAsync(existUser, loginVm.Password, loginVm.RememberMe, true);
+        if (!result.Succeeded)
+        {
+            ModelState.AddModelError("", "Invalid Credentials");
+            return View();
+        }
+        var role = await _userManager.IsInRoleAsync(existUser, Roles.Admin.ToString());
+        if (role)
+            return RedirectToAction("Index", "Dashboard", new { Area = "Admin" });
+        return RedirectToAction("Index", "Home");
+
+    }
+
+    public async Task<IActionResult> LogOut()
+    {
+        await _signInManager.SignOutAsync();
+        return RedirectToAction("Index", "Home");
+    }
+
+
+    //public async Task<IActionResult> CreateRole()
+    //{
+    //    foreach (var role in Enum.GetValues(typeof(Roles)))
+    //    {
+    //        await _roleManager.CreateAsync(new IdentityRole
+    //        {
+    //            Id = Guid.NewGuid().ToString(),
+    //            Name = role.ToString(),
+    //        });
+    //    }
+    //    return RedirectToAction("Index", "Home");
+    //}
 }
 

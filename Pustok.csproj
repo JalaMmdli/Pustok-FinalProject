@@ -35,6 +35,7 @@
     <None Remove="ViewModels\" />
     <None Remove="Views\Account\" />
     <None Remove="Services\" />
+    <None Remove="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -71,6 +72,7 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Services\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
