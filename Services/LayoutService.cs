@@ -33,7 +33,7 @@ public class LayoutService
             {
                 return new();
             }
-            var basketItems = await _context.BasketItems.Where(x => x.AppUserId == userId).ToListAsync();
+            var basketItems = await _context.BasketItems.Include(x=>x.Product).ThenInclude(x=>x.ProductImgs).Where(x => x.AppUserId == userId).ToListAsync();
             return basketItems;
 
         }
@@ -48,6 +48,14 @@ public class LayoutService
         return basktItms;
 
 
+    }
+
+
+    public async Task<List<Category>> GetCategories()
+    {
+        var categories = await _context.Categories.Where(x=>x.ParentId==null).Include(x=>x.Children).ToListAsync();
+
+        return categories;
     }
 
     private List<BasketItem> _getBasket()
