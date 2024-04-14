@@ -1,5 +1,19 @@
 ﻿@model List<Product>
 
+@{
+
+
+    var currentPage = ViewBag.CurrentPage;
+    var pageCount = ViewBag.PageCount;
+
+    if (currentPage is null)
+    {
+        currentPage = 1;
+    }
+    if (pageCount is null)
+        pageCount = 1;
+}
+
 <main class="inner-page-sec-padding-bottom">
     <div class="container">
         <div class="shop-toolbar mb--30">
@@ -26,10 +40,8 @@
                         <span>Show:</span>
                         <select class="form-control nice-select sort-select">
                             <option value="" selected="selected">3</option>
-                            <option value="">9</option>
-                            <option value="">5</option>
-                            <option value="">10</option>
-                            <option value="">12</option>
+                            <option value="">3</option>
+
                         </select>
                     </div>
                 </div>
@@ -244,20 +256,34 @@
                 <div class="pagination-block">
                     <ul class="pagination-btns flex-center">
                         <li>
-                            <a href="#" class="single-btn prev-btn ">|<i class="zmdi zmdi-chevron-left"></i> </a>
+                            <a asp-action="Index" asp-route-page="1" class="single-btn prev-btn ">|<i class="zmdi zmdi-chevron-left"></i> </a>
                         </li>
                         <li>
-                            <a href="#" class="single-btn prev-btn "><i class="zmdi zmdi-chevron-left"></i> </a>
+                            
+                            <a asp-action="Index" asp-route-page="@(currentPage-1)" class="single-btn prev-btn "><i class="zmdi zmdi-chevron-left"></i> </a>
                         </li>
-                        <li class="active"><a href="#" class="single-btn">1</a></li>
-                        <li><a href="#" class="single-btn">2</a></li>
-                        <li><a href="#" class="single-btn">3</a></li>
-                        <li><a href="#" class="single-btn">4</a></li>
+
+                        @for (int i = 1; i <= pageCount; i++)
+                        {
+                            if (i == currentPage)
+                            {
+                                <li class="active"><a asp-action="Index" asp-route-page="@i" class="single-btn">@i</a></li>
+
+                            }
+                            else
+                            {
+
+                                <li><a asp-action="Index" asp-route-page="@i" class="single-btn">@i</a></li>
+                            }
+
+                        }
+
+
                         <li>
-                            <a href="#" class="single-btn next-btn"><i class="zmdi zmdi-chevron-right"></i></a>
+                            <a asp-action="Index" asp-route-page="@(currentPage+1)" class="single-btn next-btn"><i class="zmdi zmdi-chevron-right"></i></a>
                         </li>
                         <li>
-                            <a href="#" class="single-btn next-btn"><i class="zmdi zmdi-chevron-right"></i>|</a>
+                            <a asp-action="Index" asp-route-page="@pageCount" class="single-btn next-btn"><i class="zmdi zmdi-chevron-right"></i>|</a>
                         </li>
                     </ul>
                 </div>

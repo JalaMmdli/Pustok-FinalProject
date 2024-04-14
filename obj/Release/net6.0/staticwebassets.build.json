@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4RU6fO0ehFeeNFM8Fe9nmcWsDlrGB9acNnJvBQA1vmg=",
+  "Hash": "LjD/SvlUO7xBti//ZsZKA5PqCAeC3TzpRUy2NZWPlvU=",
   "Source": "Pustok",
   "BasePath": "_content/Pustok",
   "Mode": "Default",
@@ -33116,6 +33116,23 @@
       "OriginalItemSpec": "wwwroot/assets/image/productImgs/4e7958b3-2b5d-4a7a-9b5d-fc7f6e2ce021_1200px-Javascript_badge.svg.png"
     },
     {
+      "Identity": "/Users/jal/Projects/Pustok/Pustok/wwwroot/assets/image/productImgs/50066df9-965e-40c6-aef8-6b0c80dd57ba_product-3.jpg",
+      "SourceId": "Pustok",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/jal/Projects/Pustok/Pustok/wwwroot/",
+      "BasePath": "_content/Pustok",
+      "RelativePath": "assets/image/productImgs/50066df9-965e-40c6-aef8-6b0c80dd57ba_product-3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/image/productImgs/50066df9-965e-40c6-aef8-6b0c80dd57ba_product-3.jpg"
+    },
+    {
       "Identity": "/Users/jal/Projects/Pustok/Pustok/wwwroot/assets/image/productImgs/553d99ef-87ac-467e-ac57-35fa8b1d6acb_1200px-Javascript_badge.svg.png",
       "SourceId": "Pustok",
       "SourceType": "Discovered",
@@ -33252,6 +33269,23 @@
       "OriginalItemSpec": "wwwroot/assets/image/productImgs/a7fb08b5-b029-40ba-8e2e-e8448946437f_1024px-HTML5_Badge.svg.png"
     },
     {
+      "Identity": "/Users/jal/Projects/Pustok/Pustok/wwwroot/assets/image/productImgs/ab43e122-210b-47ce-ab96-3e907fe170e2_product-2.jpg",
+      "SourceId": "Pustok",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/jal/Projects/Pustok/Pustok/wwwroot/",
+      "BasePath": "_content/Pustok",
+      "RelativePath": "assets/image/productImgs/ab43e122-210b-47ce-ab96-3e907fe170e2_product-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/image/productImgs/ab43e122-210b-47ce-ab96-3e907fe170e2_product-2.jpg"
+    },
+    {
       "Identity": "/Users/jal/Projects/Pustok/Pustok/wwwroot/assets/image/productImgs/b6f02376-88c9-429c-8a9f-f200137cc5a4_product-4.jpg",
       "SourceId": "Pustok",
       "SourceType": "Discovered",
@@ -33267,6 +33301,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/image/productImgs/b6f02376-88c9-429c-8a9f-f200137cc5a4_product-4.jpg"
+    },
+    {
+      "Identity": "/Users/jal/Projects/Pustok/Pustok/wwwroot/assets/image/productImgs/bb68a3a9-cc97-4a6d-a59b-918e207ead85_product-4.jpg",
+      "SourceId": "Pustok",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/jal/Projects/Pustok/Pustok/wwwroot/",
+      "BasePath": "_content/Pustok",
+      "RelativePath": "assets/image/productImgs/bb68a3a9-cc97-4a6d-a59b-918e207ead85_product-4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/image/productImgs/bb68a3a9-cc97-4a6d-a59b-918e207ead85_product-4.jpg"
     },
     {
       "Identity": "/Users/jal/Projects/Pustok/Pustok/wwwroot/assets/image/productImgs/bdb8eab2-9e10-44f5-8f25-07c5f9a5c290_1200px-Javascript_badge.svg.png",

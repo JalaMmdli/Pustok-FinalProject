@@ -68,7 +68,7 @@
         <input asp-for="HoverFile" class="form-control" id="exampleInputPassword1">
         <span asp-validation-for="HoverFile" class="text-danger"></span>
     </div>
-    <img src="~/assets/image/productImgs/@Model.HoverFilePath" style="width:150px"/>
+    <img src="~/assets/image/productImgs/@Model.HoverFilePath" style="width:150px" />
     <input type="hidden" asp-for="HoverFilePath" />
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Additional Files</label>
@@ -77,7 +77,7 @@
     </div>
     @foreach (var item in Model.AdditionalFilePaths)
     {
-        <img src="~/assets/image/productImgs/@item" style="width:150px"/>
+        <img src="~/assets/image/productImgs/@item" style="width:150px" />
         <input type="hidden" asp-for="AdditionalFilePaths" />
     }
     <div class="mb-3">
@@ -86,6 +86,12 @@
             <option disabled selected>Select Category</option>
         </select>
         <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Select Tags</label>
+        <select asp-for="TagIds" asp-items="@(new SelectList(ViewBag.Tags,nameof(Tag.Id),nameof(Tag.Name)))" class="form-control">
+        </select>
+        <span asp-validation-for="TagIds" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Brand</label>
@@ -97,7 +103,7 @@
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Author</label>
         <select asp-for="AuthorId" asp-items="@(new SelectList(ViewBag.Author,nameof(Author.Id),nameof(Author.Name)))" class="form-control">
-            <option selected>Select Author</option>
+            <option disabled selected>Select Author</option>
         </select>
         <span asp-validation-for="AuthorId" class="text-danger"></span>
     </div>

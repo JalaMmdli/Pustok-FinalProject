@@ -9,6 +9,7 @@ public class ProductUpdateDto
     public int RevardPoints { get; set; }
     public bool IsStock { get; set; }
     public decimal Price { get; set; }
+    [Range(0,100)]
     public decimal Discount { get; set; }
     [Range(0,6)]
     public decimal Rating { get; set; }

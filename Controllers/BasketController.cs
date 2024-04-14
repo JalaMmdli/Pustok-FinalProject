@@ -38,7 +38,7 @@ public class BasketController : Controller
 
     }
 
-    public async Task<IActionResult> RemoveToBasket(int id)
+    public async Task<IActionResult> RemoveToBasket(int id,string? returnUrl)
     {
         if (User.Identity.IsAuthenticated)
         {
@@ -52,6 +52,10 @@ public class BasketController : Controller
 
             _context.BasketItems.Remove(basketItem);
             await _context.SaveChangesAsync();
+
+            if (returnUrl is not null)
+                return Redirect(returnUrl);
+
             return RedirectToAction("index");
         }
         var basketItms = _getBasket();
@@ -63,6 +67,10 @@ public class BasketController : Controller
         basketItms.Remove(basketItm);
         var json = JsonConvert.SerializeObject(basketItms);
         Response.Cookies.Append("basket", json);
+
+        if (returnUrl is not null)
+            return Redirect(returnUrl);
+
         return RedirectToAction("index");
     }
 

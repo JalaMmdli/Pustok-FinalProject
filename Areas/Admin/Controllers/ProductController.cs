@@ -38,6 +38,7 @@ public class ProductController : Controller
         ViewBag.Categories = await _context.Categories.ToListAsync();
         ViewBag.Brands = await _context.Brands.ToListAsync();
         ViewBag.Author = await _context.Authors.ToListAsync();
+        ViewBag.Tags = await _context.Tags.ToListAsync();
 
         return View();
     }
@@ -47,9 +48,48 @@ public class ProductController : Controller
         ViewBag.Categories = await _context.Categories.ToListAsync();
         ViewBag.Brands = await _context.Brands.ToListAsync();
         ViewBag.Author = await _context.Authors.ToListAsync();
+        ViewBag.Tags = await _context.Tags.ToListAsync();
         if (!ModelState.IsValid)
         {
             return View();
+        }
+
+
+
+        var isExistCategory = await _context.Categories.AnyAsync(x => x.Id == dto.CategoryId);
+        if (!isExistCategory)
+        {
+            ModelState.AddModelError("CategoryId", "Category is not found");
+            return View(dto);
+        }
+
+
+
+        var isExistBrand = await _context.Brands.AnyAsync(x => x.Id == dto.BrandId);
+        if (!isExistBrand)
+        {
+            ModelState.AddModelError("BrandId", "Brand is not found");
+            return View(dto);
+        }
+
+
+
+        var isExistAuth = await _context.Authors.AnyAsync(x => x.Id == dto.AuthorId);
+        if (!isExistAuth)
+        {
+            ModelState.AddModelError("AuthorId", "Author is not found");
+            return View(dto);
+        }
+
+
+        foreach (var tag in dto.TagIds)
+        {
+            var isExistTag = await _context.Tags.AnyAsync(x => x.Id == tag);
+            if (!isExistTag)
+            {
+                ModelState.AddModelError("TagIds", "Tag is not found");
+                return View(dto);
+            }
         }
 
         if (_context.Products.Any(x => x.Name == dto.Name))
@@ -139,6 +179,13 @@ public class ProductController : Controller
 
         }
 
+        foreach (var tag in dto.TagIds)
+        {
+            ProductTag productTag = new() { Product = product, TagId = tag };
+            product.ProductTags.Add(productTag);
+
+        }
+
         await _context.Products.AddAsync(product);
 
         await _context.SaveChangesAsync();
@@ -165,8 +212,9 @@ public class ProductController : Controller
         ViewBag.Categories = await _context.Categories.ToListAsync();
         ViewBag.Brands = await _context.Brands.ToListAsync();
         ViewBag.Author = await _context.Authors.ToListAsync();
+        ViewBag.Tags = await _context.Tags.ToListAsync();
 
-        var product = await _context.Products.Include(x => x.ProductImgs)
+        var product = await _context.Products.Include(x => x.ProductImgs).Include(X => X.ProductTags)
                                              .FirstOrDefaultAsync(x => x.Id == id);
         if (product == null) return NotFound();
         ProductUpdateDto dto = new()
@@ -186,6 +234,7 @@ public class ProductController : Controller
             MainFilePath = product.ProductImgs.FirstOrDefault(x => x.IsMain)?.Url ?? "",
             HoverFilePath = product.ProductImgs.FirstOrDefault(x => x.IsHover)?.Url ?? "",
             AdditionalFilePaths = product.ProductImgs.Where(x => !x.IsHover && !x.IsMain).Select(x => x.Url).ToList(),
+            TagIds = product.ProductTags.Select(x => x.TagId).ToList()
 
         };
 
@@ -200,17 +249,21 @@ public class ProductController : Controller
         ViewBag.Categories = await _context.Categories.ToListAsync();
         ViewBag.Brands = await _context.Brands.ToListAsync();
         ViewBag.Author = await _context.Authors.ToListAsync();
+        ViewBag.Tags = await _context.Tags.ToListAsync();
 
-        var existProduct = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
+        var existProduct = await _context.Products.Include(x=>x.ProductTags).Include(x=>x.ProductImgs).FirstOrDefaultAsync(x => x.Id == id);
 
         if (existProduct is null)
         {
             return NotFound();
         }
+
         if (!ModelState.IsValid)
         {
             return View(dto);
         }
+
+
 
 
         var isExist = await _context.Products.AnyAsync(x => x.Name == dto.Name && x.Id != id);
@@ -220,31 +273,63 @@ public class ProductController : Controller
             return View(dto);
         }
 
-
         var isExistCategory = await _context.Categories.AnyAsync(x => x.Id == dto.CategoryId);
-
         if (!isExistCategory)
         {
-            ModelState.AddModelError("CategoryId", "Category is not valid");
+            ModelState.AddModelError("CategoryId", "Category is not found");
             return View(dto);
         }
+
+
 
         var isExistBrand = await _context.Brands.AnyAsync(x => x.Id == dto.BrandId);
-
         if (!isExistBrand)
         {
-            ModelState.AddModelError("BrandId", "Brand is not valid");
+            ModelState.AddModelError("BrandId", "Brand is not found");
             return View(dto);
         }
 
-        var isExistAuthor = await _context.Authors.AnyAsync(x => x.Id == dto.AuthorId);
 
-        if (!isExistAuthor)
+
+        var isExistAuth = await _context.Authors.AnyAsync(x => x.Id == dto.AuthorId);
+        if (!isExistAuth)
         {
-            ModelState.AddModelError("AuthorId", "Author is not valid");
+            ModelState.AddModelError("AuthorId", "Author is not found");
             return View(dto);
         }
 
+
+        foreach (var tag in dto.TagIds)
+        {
+            var isExistTag = await _context.Tags.AnyAsync(x => x.Id == tag);
+            if (!isExistTag)
+            {
+                ModelState.AddModelError("TagIds", "Tag is not found");
+                return View(dto);
+            }
+        }
+
+      
+
+
+        foreach (var file in dto.AdditionalFiles)
+        {
+
+            if (!file.CheckFileSize(2))
+            {
+                ModelState.AddModelError("AdditionalFiles", "Files cannot be more than 2mb");
+                return View(dto);
+            }
+
+
+            if (!file.CheckFileType("image"))
+            {
+                ModelState.AddModelError("AdditionalFiles", "Files must be image type!");
+                return View(dto);
+            }
+
+
+        }
         if (dto.AdditionalFiles is not null)
         {
             foreach (var file in dto.AdditionalFiles)
@@ -305,6 +390,7 @@ public class ProductController : Controller
             foreach (var item in existProduct.ProductImgs.Where(x => !x.IsMain && !x.IsHover))
             {
                 item.Url.DeleteFile(_env.WebRootPath, "assets", "image", "productImgs");
+                _context.ProductImgs.Remove(item);
 
             }
             foreach (var file in dto.AdditionalFiles)
@@ -349,6 +435,18 @@ public class ProductController : Controller
         existProduct.AuthorId = dto.AuthorId;
 
 
+        foreach (var productTag in existProduct.ProductTags)
+        {
+            _context.ProductTags.Remove(productTag);
+        }
+
+        foreach (var tag in dto.TagIds)
+        {
+            ProductTag pTag = new() { Product = existProduct, TagId = tag };
+            existProduct.ProductTags.Add(pTag);
+        }
+
+
         _context.Products.Update(existProduct);
         await _context.SaveChangesAsync();
 
@@ -359,8 +457,8 @@ public class ProductController : Controller
     public async Task<IActionResult> Detail(int id)
     {
 
-       var existProduct= await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
-        if ( existProduct is null) return BadRequest();
+        var existProduct = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
+        if (existProduct is null) return BadRequest();
 
 
         var product = await _context.Products.Include(x => x.Category)

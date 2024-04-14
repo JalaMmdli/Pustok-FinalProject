@@ -19,13 +19,30 @@ public class ShopController : Controller
         _userManager = userManager;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page = 1)
     {
+
+
+        if (page <= 0)
+            page = 1;
+
+        var totalProducts = await _context.Products.ToListAsync();
+        var pageCount = Math.Ceiling((decimal)totalProducts.Count / 3);
+
+
+        if (page > pageCount)
+            page = (int)pageCount;
+
         var products = await _context.Products.Include(x => x.Category)
                                               .Include(x => x.Author)
                                               .Include(x => x.Brand)
                                               .Include(x => x.ProductImgs)
+                                              .Skip((page - 1) * 3).Take(3)
                                               .ToListAsync();
+
+
+        ViewBag.CurrentPage = page;
+        ViewBag.PageCount = pageCount;
         return View(products);
     }
 
@@ -115,7 +132,7 @@ public class ShopController : Controller
                                               .Include(x => x.ProductImgs)
                                               .ToListAsync();
 
-        return View("Index",products);
+        return View("Index", products);
     }
 
     private List<BasketItem> GetBasket()

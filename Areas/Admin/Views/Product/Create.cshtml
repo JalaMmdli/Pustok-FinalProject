@@ -1,6 +1,8 @@
 ﻿@model ProductCreateDto
 
 <form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger">  </div>
+
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Name</label>
         <input type="text" asp-for="Name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -37,7 +39,7 @@
         @* <div class="form-text">We'll never share your email with anyone else.</div> *@
         <span asp-validation-for="Discount" class="text-danger"></span>
     </div>
-   <div class="mb-3">
+    <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Is it in stock? </label>
         <input type="checkbox" asp-for="IsStock" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         @* <div class="form-text">We'll never share your email with anyone else.</div> *@
@@ -73,24 +75,29 @@
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Category</label>
         <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories,nameof(Category.Id),nameof(Category.Name)))" class="form-control">
-            <option selected>Select Category</option>
+            <option disabled selected>Select Category</option>
         </select>
         <span asp-validation-for="CategoryId" class="text-danger"></span>
     </div>
     <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Select Tags</label>
+        <select asp-for="TagIds" asp-items="@(new SelectList(ViewBag.Tags,nameof(Tag.Id),nameof(Tag.Name)))" class="form-control">
+        </select>
+        <span asp-validation-for="TagIds" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Brand</label>
         <select asp-for="BrandId" asp-items="@(new SelectList(ViewBag.Brands,nameof(Brand.Id),nameof(Brand.Name)))" class="form-control">
-            <option selected>Select Brand</option>
+            <option disabled selected>Select Brand</option>
         </select>
         <span asp-validation-for="BrandId" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Author</label>
         <select asp-for="AuthorId" asp-items="@(new SelectList(ViewBag.Author,nameof(Author.Id),nameof(Author.Name)))" class="form-control">
-            <option selected>Select Author</option>
+            <option disabled selected>Select Author</option>
         </select>
         <span asp-validation-for="AuthorId" class="text-danger"></span>
     </div>
-    <div asp-validation-summary="ModelOnly" class="text-danger">  </div>
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
