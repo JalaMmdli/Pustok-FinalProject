@@ -1,6 +1,9 @@
 ﻿using System.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Pustok.Data;
 using Pustok.Enums;
 using Pustok.Models;
 using Pustok.Services;
@@ -15,13 +18,15 @@ public class AccountController : Controller
     private readonly IEmailService _emailService;
     private readonly SignInManager<AppUser> _signInManager;
     private readonly RoleManager<IdentityRole> _roleManager;
+    private readonly AppDbContext _context;
 
-    public AccountController(UserManager<AppUser> userManager, IEmailService emailService, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
+    public AccountController(UserManager<AppUser> userManager, IEmailService emailService, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager, AppDbContext context)
     {
         _userManager = userManager;
         _emailService = emailService;
         _signInManager = signInManager;
         _roleManager = roleManager;
+        _context = context;
     }
 
     public IActionResult Register()
@@ -62,7 +67,9 @@ public class AccountController : Controller
 
         _emailService.SendEmail(appUser.Email, "Confirm Email", url);
 
+        await _userManager.AddToRoleAsync(appUser, Roles.Member.ToString());
 
+        await TransferBasket(appUser);
         return RedirectToAction("Login");
     }
 
@@ -81,6 +88,8 @@ public class AccountController : Controller
 
 
        await _signInManager.SignInAsync(user, false);
+
+        await TransferBasket(user);
 
         return RedirectToAction("Index", "Home");
 
@@ -111,11 +120,32 @@ public class AccountController : Controller
             ModelState.AddModelError("", "Invalid Credentials");
             return View();
         }
+
+        await TransferBasket(existUser);
+
         var role = await _userManager.IsInRoleAsync(existUser, Roles.Admin.ToString());
         if (role)
             return RedirectToAction("Index", "Dashboard", new { Area = "Admin" });
         return RedirectToAction("Index", "Home");
 
+    }
+
+    private async Task TransferBasket(AppUser existUser)
+    {
+        var basketItems = _getBasket();
+
+        foreach (var item in basketItems)
+        {
+            var isExistBasket = await _context.BasketItems.AnyAsync(x => x.ProductId == item.ProductId && x.AppUserId == existUser.Id);
+
+            if (!isExistBasket)
+            {
+                BasketItem basketItem = new() { ProductId = item.ProductId, AppUserId = existUser.Id , Count=item.Count};
+                await _context.BasketItems.AddAsync(basketItem);
+            }
+
+        }
+        await _context.SaveChangesAsync();
     }
 
     public async Task<IActionResult> LogOut()
@@ -137,5 +167,17 @@ public class AccountController : Controller
     //    }
     //    return RedirectToAction("Index", "Home");
     //}
+
+
+    private List<BasketItem> _getBasket()
+    {
+        List<BasketItem> basketItems = new();
+        if (Request.Cookies["basket"] != null)
+        {
+            basketItems = JsonConvert.DeserializeObject<List<BasketItem>>(Request.Cookies["basket"]) ?? new();
+        }
+
+        return basketItems;
+    }
 }
 

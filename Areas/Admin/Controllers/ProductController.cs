@@ -1,15 +1,16 @@
-﻿using System.Xml.Linq;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Pustok.Areas.Admin.Dtos;
 using Pustok.Data;
+using Pustok.Enums;
 using Pustok.Extensions;
-using Pustok.Migrations;
 using Pustok.Models;
 
 
 namespace Pustok.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 
 public class ProductController : Controller
 {
@@ -29,6 +30,8 @@ public class ProductController : Controller
                                                .Include(x => x.Category)
                                                .Include(x => x.Brand)
                                                .ToListAsync();
+
+
         return View(products);
 
 

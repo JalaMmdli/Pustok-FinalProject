@@ -1,0 +1,17 @@
+﻿@model SettingCreateDto
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Key">Key</label>
+        <input class="form-control" asp-for="Key" placeholder="Enter Key">
+        <span asp-validation-for="Key" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Value">Value</label>
+        <input class="form-control" asp-for="Value" placeholder="Enter Value">
+        <span asp-validation-for="Value" class="text-danger"></span>
+    </div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger">  </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

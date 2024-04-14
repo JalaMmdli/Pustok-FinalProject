@@ -49,7 +49,12 @@ public class LayoutService
 
 
     }
+    public async Task<Dictionary<string,string>> GetSettingsAsync()
+    {
+        var settings = await _context.Settings.ToDictionaryAsync(x => x.Key, x => x.Value);
 
+        return settings;
+    }
 
     public async Task<List<Category>> GetCategories()
     {

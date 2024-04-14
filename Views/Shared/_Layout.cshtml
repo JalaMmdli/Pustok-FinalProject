@@ -1,6 +1,7 @@
 ﻿@inject LayoutService  _layoutService
 @{
     var basketItems = await _layoutService.GetBasket();
+    var settings = await _layoutService.GetSettingsAsync();
     int count = 0;
     decimal totalPrice = 0;
     foreach (var item in basketItems)
@@ -44,7 +45,7 @@
                                 </div>
                                 <div class="text">
                                     <p>Free Support 24/7</p>
-                                    <p class="font-weight-bold number">+01-202-555-0181</p>
+                                    <p class="font-weight-bold number">@settings["HeaderPhone"]</p>
                                 </div>
                             </div>
                         </div>
@@ -823,13 +824,12 @@
                         <div class="footer-contact">
                             <p>
                                 <span class="label">Address:</span><span class="text">
-                                    Example Street 98, HH2 BacHa, New
-                                    York,
-                                    USA
+                                   @settings["Address"]
+                                
                                 </span>
                             </p>
-                            <p><span class="label">Phone:</span><span class="text">+18088 234 5678</span></p>
-                            <p><span class="label">Email:</span><span class="text">suport@hastech.com</span></p>
+                            <p><span class="label">Phone:</span><span class="text">@settings["FooterPhone"]</span></p>
+                            <p><span class="label">Email:</span><span class="text">@settings["FooterMail"]</span></p>
                         </div>
                     </div>
                 </div>

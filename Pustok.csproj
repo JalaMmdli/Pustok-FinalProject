@@ -39,6 +39,8 @@
     <None Remove="Views\Basket\" />
     <None Remove="Areas\Admin\Dtos\TagDtos\" />
     <None Remove="Areas\Admin\Views\Tag\" />
+    <None Remove="Areas\Admin\Views\Setting\" />
+    <None Remove="Areas\Admin\Dtos\SettingDtos\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -79,6 +81,8 @@
     <Folder Include="Views\Basket\" />
     <Folder Include="Areas\Admin\Dtos\TagDtos\" />
     <Folder Include="Areas\Admin\Views\Tag\" />
+    <Folder Include="Areas\Admin\Views\Setting\" />
+    <Folder Include="Areas\Admin\Dtos\SettingDtos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

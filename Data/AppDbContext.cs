@@ -25,6 +25,7 @@ public class AppDbContext : IdentityDbContext<AppUser>
     public DbSet<ProductTag> ProductTags { get; set; } = null!;
 
     public DbSet<Author> Authors { get; set; } = null!;
+    public DbSet<Setting> Settings { get; set; } = null!;
 
 }
 
