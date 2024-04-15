@@ -136,7 +136,7 @@ public class SliderController : Controller
         }
         slider.ImagePath.DeleteFile(_env.WebRootPath, "assets", "image","sliderIcons");
         _context.Sliders.Remove(slider);
-
+        await _context.SaveChangesAsync();
 
         return RedirectToAction("Index");
     }

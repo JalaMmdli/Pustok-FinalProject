@@ -19,7 +19,7 @@ public class ShopController : Controller
         _userManager = userManager;
     }
 
-    public async Task<IActionResult> Index(int page = 1)
+    public async Task<IActionResult> Index(int? categoryId, int page = 1)
     {
 
 
@@ -27,18 +27,27 @@ public class ShopController : Controller
             page = 1;
 
         var totalProducts = await _context.Products.ToListAsync();
+        if (categoryId is not null)
+            totalProducts = totalProducts.Where(x => x.CategoryId == categoryId).ToList();
+
         var pageCount = Math.Ceiling((decimal)totalProducts.Count / 3);
 
 
         if (page > pageCount)
             page = (int)pageCount;
 
-        var products = await _context.Products.Include(x => x.Category)
+        var query =  _context.Products.Include(x => x.Category)
                                               .Include(x => x.Author)
                                               .Include(x => x.Brand)
                                               .Include(x => x.ProductImgs)
-                                              .Skip((page - 1) * 3).Take(3)
-                                              .ToListAsync();
+                                              .Skip((page - 1) * 3).Take(3).AsQueryable();
+
+        if (categoryId is not null)
+            query = query.Where(x => x.CategoryId == categoryId);
+
+        List<Product> products = new();
+        if(await _context.Products.AnyAsync(x=>x.CategoryId==categoryId))
+         products = await query.ToListAsync();
 
 
         ViewBag.CurrentPage = page;
@@ -46,7 +55,7 @@ public class ShopController : Controller
         return View(products);
     }
 
-    public async Task<IActionResult> AddToBasket(int id)
+    public async Task<IActionResult> AddToBasket(int id, string? returnUrl)
     {
         var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -101,6 +110,10 @@ public class ShopController : Controller
 
         }
 
+
+        if (returnUrl is not null)
+            return Redirect(returnUrl);
+
         return RedirectToAction(nameof(Index));
 
     }
@@ -123,8 +136,10 @@ public class ShopController : Controller
         return View(product);
     }
 
-    public async Task<IActionResult> Search(string search)
+    public async Task<IActionResult> Search(string? search)
     {
+        if (search is null)
+            search = " ";
         var products = await _context.Products.Where(x => x.Name.Trim().ToLower().Contains(search.ToLower().Trim()))
                                               .Include(x => x.Category)
                                               .Include(x => x.Author)

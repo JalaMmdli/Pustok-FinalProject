@@ -35,12 +35,11 @@
                                     {
                                         <tr>
                                             <td>@count</td>
-                                            <td><img width="100" src="~/assets/image/sliderIcons/@service.Icon" /></td>
+                                            <td><img width="100" src="~/assets/image/serviceIcons/@service.Icon" /></td>
                                             <td>@service.Title</td>
                                             <td>@service.Description</td>
-                                            <td><a class="btn btn-danger" asp-controller="Service" asp-action="Delete" asp-route-id="@service.Id" asp-area="Admin">Delete</a></td>
-                                            <td><a class="btn btn-warning" asp-controller="Service" asp-action="Update" asp-route-id="@service.Id" asp-area="Admin">Edit</a></td>
-                                            <td><a class="btn btn-primary" asp-controller="Service" asp-action="Detail" asp-route-id="@service.Id" asp-area="Admin">Detail</a></td>
+                                            <td><a class="btn btn-danger deleteBtn" data-id="@service.Id" asp-controller="Service" asp-action="Delete" asp-route-id="@service.Id" asp-area="Admin">Delete</a></td>
+                                            <td><a class="btn btn-warning"  asp-controller="Service" asp-action="Update" asp-route-id="@service.Id" asp-area="Admin">Edit</a></td>
                                         </tr>
                                     }
                                 </tbody>
@@ -84,10 +83,10 @@
                         console.log(categoryId);
                         $.ajax({
                             type: "POST",
-                            url: `Category/Delete/${categoryId}`,
+                            url: `Service/Delete/${categoryId}`,
                             success: function (res) {
                                 console.log(res)
-                                $("#tbody").html(res);
+                                location.reload();
                             },
                             error: function (err) {
                                 console.log(err)

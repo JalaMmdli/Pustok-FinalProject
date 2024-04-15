@@ -5,9 +5,12 @@ namespace Pustok.ViewModels;
 
 public class HomeVm
 {
-	public List<Product> Products { get; set; }
-	public List<Category> Categories { get; set; }
-	public List<Slider> Sliders { get; set; }
-	public List<Service> Services { get; set; }
+	public List<Product> NewProducts { get; set; } = new();
+	public List<Product> ChildrenProducts { get; set; } = new();
+	public List<Product> DiscountedProducts { get; set; } = new();
+	public List<Product> TwentyDiscountedProducts { get; set; } = new();
+	public List<Product> UndiscountedProducts { get; set; } = new();
+    public List<Slider> Sliders { get; set; } = new();
+    public List<Service> Services { get; set; } = new();
 }
 

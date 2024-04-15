@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LjD/SvlUO7xBti//ZsZKA5PqCAeC3TzpRUy2NZWPlvU=",
+  "Hash": "JXTB9TnFGrTW+79qoV00gj8jkwaS/jSjuHV5MbHNu84=",
   "Source": "Pustok",
   "BasePath": "_content/Pustok",
   "Mode": "Default",
@@ -33896,6 +33896,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/image/serviceIcons/a9ef8a45-d5a4-45f5-80df-3a5250847182_1024px-HTML5_Badge.svg.png"
+    },
+    {
+      "Identity": "/Users/jal/Projects/Pustok/Pustok/wwwroot/assets/image/serviceIcons/da09c9a7-dca0-43b1-8b45-a507cb9370a3_product-2.jpg",
+      "SourceId": "Pustok",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/jal/Projects/Pustok/Pustok/wwwroot/",
+      "BasePath": "_content/Pustok",
+      "RelativePath": "assets/image/serviceIcons/da09c9a7-dca0-43b1-8b45-a507cb9370a3_product-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/image/serviceIcons/da09c9a7-dca0-43b1-8b45-a507cb9370a3_product-2.jpg"
     },
     {
       "Identity": "/Users/jal/Projects/Pustok/Pustok/wwwroot/assets/image/serviceIcons/fd97a68b-58c3-410e-8df2-097a0e13acf4_1024px-HTML5_Badge.svg.png",

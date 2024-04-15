@@ -36,7 +36,7 @@
                                         <tr class="odd">
                                             <td class="sorting_1">@(count++)</td>
                                             <td class="sorting_1">@author.Name</td>
-                                            <td><a class="btn deleteBtn btn-danger" asp-controller="Author" asp-action="Delete" asp-route-id="@author.Id">Delete</a></td>
+                                            <td><a class="btn deleteBtn btn-danger" data-id="@author.Id" asp-controller="Author" asp-action="Delete" asp-route-id="@author.Id">Delete</a></td>
                                             <td><a class="btn btn-warning" asp-controller="Author" asp-action="Update" asp-route-id="@author.Id">Update</a></td>
                                         </tr>
                                     }
@@ -81,10 +81,10 @@
                         console.log(categoryId);
                         $.ajax({
                             type: "POST",
-                            url: `Category/Delete/${categoryId}`,
+                            url: `author/Delete/${categoryId}`,
                             success: function (res) {
                                 console.log(res)
-                                $("#tbody").html(res);
+                               location.reload()
                             },
                             error: function (err) {
                                 console.log(err)

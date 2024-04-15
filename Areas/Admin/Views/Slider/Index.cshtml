@@ -40,9 +40,8 @@
                                             <td>@slider.Title</td>
                                             <td>@slider.Description</td>
                                             <td>@slider.Button</td>
-                                            <td><a class="btn btn-danger" asp-controller="Slider" asp-action="Delete" asp-route-id="@slider.Id" asp-area="Admin">Delete</a></td>
+                                            <td><a class="btn btn-danger deleteBtn" data-id="@slider.Id" asp-controller="Slider" asp-action="Delete" asp-route-id="@slider.Id" asp-area="Admin">Delete</a></td>
                                             <td><a class="btn btn-warning" asp-controller="Slider" asp-action="Update" asp-route-id="@slider.Id" asp-area="Admin">Edit</a></td>
-                                            <td><a class="btn btn-primary" asp-controller="Slider" asp-action="Detail" asp-route-id="@slider.Id" asp-area="Admin">Detail</a></td>
                                         </tr>
                                     }
                                 </tbody>
@@ -86,10 +85,10 @@
                         console.log(categoryId);
                         $.ajax({
                             type: "POST",
-                            url: `Category/Delete/${categoryId}`,
+                            url: `Slider/Delete/${categoryId}`,
                             success: function (res) {
                                 console.log(res)
-                                $("#tbody").html(res);
+                                location.reload();
                             },
                             error: function (err) {
                                 console.log(err)

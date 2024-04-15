@@ -25,7 +25,7 @@ public class ServiceController : Controller
 
     public async Task< IActionResult> Index()
     {
-        var services = await _context.Service.ToListAsync();
+        var services = await _context.Services.ToListAsync();
         return View(services);
     }
 
@@ -52,7 +52,7 @@ public class ServiceController : Controller
             return View(dto);
         }
 
-        var isExistTitle = await _context.Service.AnyAsync(x => x.Title.ToLower() == dto.Title.ToLower());
+        var isExistTitle = await _context.Services.AnyAsync(x => x.Title.ToLower() == dto.Title.ToLower());
 
         if (isExistTitle)
         {
@@ -67,14 +67,14 @@ public class ServiceController : Controller
             Description = dto.Description,
             Icon = uniqueFileName
         };
-        await _context.Service.AddAsync(newService);
+        await _context.Services.AddAsync(newService);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
 
     public async Task<IActionResult> Update(int id)
     {
-        var service = await _context.Service.FirstOrDefaultAsync(x => x.Id == id);
+        var service = await _context.Services.FirstOrDefaultAsync(x => x.Id == id);
         if (service is null)
         {
             return NotFound();
@@ -98,7 +98,7 @@ public class ServiceController : Controller
         {
             return View();
         }
-        var existService = await _context.Service.FirstOrDefaultAsync(x => x.Id == id);
+        var existService = await _context.Services.FirstOrDefaultAsync(x => x.Id == id);
         if (existService is null)
             return NotFound();
 
@@ -131,15 +131,15 @@ public class ServiceController : Controller
     [HttpPost]
     public async Task<IActionResult> Delete(int id)
     {
-        var service = await _context.Service.FirstOrDefaultAsync(x => x.Id == id);
+        var service = await _context.Services.FirstOrDefaultAsync(x => x.Id == id);
 
         if (service is null)
         {
             return NotFound();
         }
         service.Icon.DeleteFile(_env.WebRootPath, "assets", "image", "sliderIcons");
-        _context.Service.Remove(service);
-
+        _context.Services.Remove(service);
+        await _context.SaveChangesAsync();
 
         return RedirectToAction("Index");
 
